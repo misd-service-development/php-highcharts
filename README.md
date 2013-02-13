@@ -34,7 +34,7 @@ Installation
 
  2. Use Composer to download and install the bundle:
 
-        $ php composer.phar install misd/highcharts
+        $ php composer.phar update misd/highcharts
 
 Usage
 -----
@@ -59,6 +59,8 @@ Create a chart:
     ;
 
 Then render it:
+
+    <?php $renderer = new Renderer(); ?>
 
     <script type="text/javascript">
         $(function () {
