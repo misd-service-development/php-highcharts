@@ -21,6 +21,11 @@ use Misd\Highcharts\Exception\InvalidArgumentException;
  */
 class Title implements TitleInterface
 {
+    /**
+     * Constructor.
+     *
+     * @param AxisInterface $axis Axis.
+     */
     public function __construct(AxisInterface $axis)
     {
         $this->axis = $axis;
