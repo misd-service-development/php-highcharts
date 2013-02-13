@@ -38,6 +38,35 @@ class Tooltip implements TooltipInterface
     }
 
     /**
+     * Is enabled.
+     *
+     * @var bool
+     */
+    protected $enabled = true;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEnabled($enabled = true)
+    {
+        if (false === is_bool($enabled)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
      * Formatter.
      *
      * @var Expr|null
@@ -62,6 +91,49 @@ class Tooltip implements TooltipInterface
         }
 
         $this->formatter = $formatter;
+
+        return $this;
+    }
+
+    /**
+     * Styles.
+     *
+     * @var array
+     */
+    protected $styles = array();
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStyle($key)
+    {
+        return array_key_exists($key, $this->styles) ? $this->styles[$key] : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStyles()
+    {
+        return $this->styles;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStyle($key, $value)
+    {
+        $this->styles[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setStyles(array $styles)
+    {
+        $this->styles = $styles;
 
         return $this;
     }

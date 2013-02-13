@@ -33,6 +33,25 @@ class TooltipTest extends TestCase
         return new Tooltip($this->getMockChart());
     }
 
+    public function testEnabled()
+    {
+        $title = $this->getTooltip();
+
+        $this->assertTrue($title->isEnabled());
+        $this->assertSame($title, $title->setEnabled(false));
+        $this->assertFalse($title->isEnabled());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testEnabledInvalidArgumentException()
+    {
+        $title = $this->getTooltip();
+
+        $title->setEnabled(null);
+    }
+
     public function testFormatter()
     {
         $tooltip = $this->getTooltip();
@@ -54,5 +73,18 @@ class TooltipTest extends TestCase
         $tooltip = $this->getTooltip();
 
         $tooltip->setFormatter('test');
+    }
+
+    public function testStyle()
+    {
+        $title = $this->getTooltip();
+
+        $this->assertSame(array(), $title->getStyles());
+        $this->assertSame($title, $title->setStyle('one', 'One'));
+        $this->assertSame(array('one' => 'One'), $title->getStyles());
+        $this->assertSame($title, $title->setStyles(array('two' => 'Two', 'three' => 'Three')));
+        $this->assertSame(array('two' => 'Two', 'three' => 'Three'), $title->getStyles());
+        $this->assertSame('Three', $title->getStyle('three'));
+        $this->assertNull($title->getStyle('four'));
     }
 }

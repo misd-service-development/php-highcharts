@@ -31,6 +31,7 @@ use Misd\Highcharts\Series\SequentialSeriesInterface;
 use Misd\Highcharts\Series\SeriesInterface;
 use Misd\Highcharts\Series\SplineSeriesInterface;
 use Misd\Highcharts\Series\StackableSeriesInterface;
+use Misd\Highcharts\Tooltip\TooltipInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Zend\Json\Json;
 
@@ -125,9 +126,7 @@ class Renderer implements RendererInterface
             'legend' => array(
                 'enabled' => $chart->hasLegend(),
             ),
-            'tooltip' => array(
-                'formatter' => $chart->getTooltip()->getFormatter(),
-            ),
+            'tooltip' => $this->renderTooltip($chart->getTooltip()),
             'credits' => array(
                 'enabled' => false,
             ),
@@ -180,6 +179,22 @@ class Renderer implements RendererInterface
         );
 
         return $options;
+    }
+
+    /**
+     * Renders the tooltip.
+     *
+     * @param TooltipInterface $tooltip Tooltip.
+     *
+     * @return array Options.
+     */
+    protected function renderTooltip(TooltipInterface $tooltip)
+    {
+        return array(
+            'enabled' => $tooltip->isEnabled(),
+            'formatter' => $tooltip->getFormatter(),
+            'style' => $tooltip->getStyles(),
+        );
     }
 
     /**
