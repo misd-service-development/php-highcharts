@@ -62,5 +62,4 @@ interface TitleInterface extends StyleableInterface
      * @return self Reference to the title.
      */
     public function setText($text);
-
 }
