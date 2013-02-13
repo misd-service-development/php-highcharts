@@ -235,7 +235,7 @@ class Renderer implements RendererInterface
     }
 
     /**
-     * Renders an axis.
+     * Renders a series.
      *
      * @param SeriesInterface $series Series.
      *
