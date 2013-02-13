@@ -125,4 +125,23 @@ class AbstractAxisTest extends TestCase
 
         $axis->setTickWidth(null);
     }
+
+    public function testGridLineWidth()
+    {
+        $axis = $this->getAxis();
+
+        $this->assertTrue(is_int($axis->getGridLineWidth()));
+        $this->assertSame($axis, $axis->setGridLineWidth(10));
+        $this->assertSame(10, $axis->getGridLineWidth());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testGridLineWidthInvalidArgumentException()
+    {
+        $axis = $this->getAxis();
+
+        $axis->setGridLineWidth(null);
+    }
 }

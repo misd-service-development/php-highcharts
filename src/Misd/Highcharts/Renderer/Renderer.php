@@ -246,6 +246,7 @@ class Renderer implements RendererInterface
             $options['labels']['formatter'] = $axis->getLabel()->getFormatter();
         }
         $options['tickWidth'] = $axis->getTickWidth();
+        $options['gridLineWidth'] = $axis->getGridLineWidth();
 
         return $options;
     }

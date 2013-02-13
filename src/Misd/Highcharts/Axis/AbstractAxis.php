@@ -221,4 +221,33 @@ abstract class AbstractAxis implements AxisInterface
 
         return $this;
     }
+
+    /**
+     * Grid line width.
+     *
+     * @var int
+     */
+    protected $gridLineWidth = 0;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getGridLineWidth()
+    {
+        return $this->gridLineWidth;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setGridLineWidth($gridLineWidth)
+    {
+        if (false === is_int($gridLineWidth)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->gridLineWidth = $gridLineWidth;
+
+        return $this;
+    }
 }

@@ -103,4 +103,22 @@ interface AxisInterface
      * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setTickWidth($tickWidth);
+
+    /**
+     * Gets the grid line width.
+     *
+     * @return int Grid line width.
+     */
+    public function getGridLineWidth();
+
+    /**
+     * Sets the grid line width.
+     *
+     * @param int $gridLineWidth Grid line width.
+     *
+     * @return self Reference to the axis.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setGridLineWidth($gridLineWidth);
 }

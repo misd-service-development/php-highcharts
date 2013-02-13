@@ -25,4 +25,9 @@ class YAxis extends AbstractAxis implements YAxisInterface
     {
         return new self();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $gridLineWidth = 1;
 }
