@@ -216,15 +216,15 @@ class Renderer implements RendererInterface
             $options['categories'] = array_values($axis->getCategories());
         }
 
-        $options['title'] = array(
-            'enabled' => $axis->getTitle()->isEnabled(),
-        );
-
-        if (null !== $axis->getTitle()->getText()) {
-            $options['title']['text'] = $axis->getTitle()->getText();
-        }
-        if (0 < count($axis->getTitle()->getStyles())) {
-            $options['title']['style'] = $axis->getTitle()->getStyles();
+        if (false === $axis->getTitle()->isEnabled()) {
+            $options['title']['text'] = null;
+        } else {
+            if (null !== $axis->getTitle()->getText()) {
+                $options['title']['text'] = $axis->getTitle()->getText();
+            }
+            if (0 < count($axis->getTitle()->getStyles())) {
+                $options['title']['style'] = $axis->getTitle()->getStyles();
+            }
         }
 
         $options['labels'] = array(
