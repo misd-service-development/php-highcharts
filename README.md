@@ -1,6 +1,8 @@
 PHP Highcharts
 ==============
 
+[![Build Status](https://secure.travis-ci.org/misd-service-development/php-highcharts.png?branch=master)](http://travis-ci.org/misd-service-development/php-highcharts)
+
 *This library is currently under development.*
 
 Allows the programmatic creation of [Highcharts](http://www.highcharts.com/) in PHP.
