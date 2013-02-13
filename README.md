@@ -69,3 +69,8 @@ Then render it:
     </script>
 
     <?php echo $renderer->renderContainer($chart); ?>
+
+Reporting an issue or a feature request
+---------------------------------------
+
+Issues and feature requests are tracked in the [GitHub issue tracker](https://github.com/misd-service-development/php-highcharts/issues).
