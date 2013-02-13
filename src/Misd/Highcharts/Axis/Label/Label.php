@@ -11,6 +11,7 @@
 
 namespace Misd\Highcharts\Axis\Label;
 
+use Misd\Highcharts\Axis\AxisInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
 use Zend\Json\Expr;
 
@@ -21,6 +22,33 @@ use Zend\Json\Expr;
  */
 class Label implements LabelInterface
 {
+    /**
+     * Constructor.
+     *
+     * @param AxisInterface $axis Axis.
+     */
+    public function __construct(AxisInterface $axis)
+    {
+        $this->axis = $axis;
+    }
+
+    /**
+     * Axis.
+     *
+     * @var AxisInterface
+     */
+    protected $axis;
+
+    /**
+     * Gets the axis.
+     *
+     * @return AxisInterface Axis.
+     */
+    public function getAxis()
+    {
+        return $this->axis;
+    }
+
     /**
      * Is enabled.
      *

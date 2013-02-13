@@ -30,7 +30,7 @@ abstract class AbstractAxis implements AxisInterface
     public function __construct()
     {
         $this->title = new Title($this);
-        $this->label = new Label();
+        $this->label = new Label($this);
     }
 
     /**

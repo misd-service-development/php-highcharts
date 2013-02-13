@@ -11,6 +11,7 @@
 
 namespace Misd\Highcharts\Axis\Label;
 
+use Misd\Highcharts\Axis\AxisInterface;
 use Misd\Highcharts\FormatableInterface;
 use Misd\Highcharts\StyleableInterface;
 
@@ -24,6 +25,13 @@ interface LabelInterface extends FormatableInterface, StyleableInterface
     const ALIGN_LEFT = 'left';
     const ALIGN_CENTER = 'center';
     const ALIGN_RIGHT = 'right';
+
+    /**
+     * Gets the axis.
+     *
+     * @return AxisInterface Axis.
+     */
+    public function getAxis();
 
     /**
      * Whether the label is enabled.

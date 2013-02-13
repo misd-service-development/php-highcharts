@@ -11,15 +11,37 @@
 
 namespace Misd\Highcharts\Test\Axis\Label;
 
+use Misd\Highcharts\Axis\AxisInterface;
 use Misd\Highcharts\Axis\Label\Label;
 use Misd\Highcharts\Axis\Label\LabelInterface;
 use PHPUnit_Framework_TestCase as TestCase;
 
 class LabelTest extends TestCase
 {
+    /**
+     * @var AxisInterface
+     */
+    protected $mockAxis;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setUp()
+    {
+        $this->mockAxis = $this->getMock('Misd\Highcharts\Axis\AxisInterface');
+    }
+
+    /**
+     * @return Label
+     */
+    protected function createLabel()
+    {
+        return new Label($this->mockAxis);
+    }
+
     public function testEnabled()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $this->assertTrue($label->isEnabled());
         $this->assertSame($label, $label->setEnabled(false));
@@ -31,14 +53,14 @@ class LabelTest extends TestCase
      */
     public function testEnabledInvalidArgumentException()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $label->setEnabled(null);
     }
 
     public function testAlign()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $this->assertNull($label->getAlign());
         $this->assertSame($label, $label->setAlign(LabelInterface::ALIGN_LEFT));
@@ -50,14 +72,14 @@ class LabelTest extends TestCase
      */
     public function testAlignInvalidArgumentException()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $label->setAlign($this->getMock('StdClass'));
     }
 
     public function testStyle()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $this->assertSame(array(), $label->getStyles());
         $this->assertSame($label, $label->setStyle('one', 'One'));
@@ -70,7 +92,7 @@ class LabelTest extends TestCase
 
     public function testXOffset()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $this->assertNull($label->getXOffset());
         $this->assertSame($label, $label->setXOffset(10));
@@ -84,14 +106,14 @@ class LabelTest extends TestCase
      */
     public function testXOffsetInvalidArgumentException()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $label->setXOffset('test');
     }
 
     public function testYOffset()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $this->assertNull($label->getYOffset());
         $this->assertSame($label, $label->setYOffset(10));
@@ -105,14 +127,14 @@ class LabelTest extends TestCase
      */
     public function testYOffsetInvalidArgumentException()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $label->setYOffset('test');
     }
 
     public function testFormatter()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $formatter = $this->getMock('Zend\Json\Expr', array(), array('test'));
 
@@ -128,7 +150,7 @@ class LabelTest extends TestCase
      */
     public function testFormatterInvalidArgumentException()
     {
-        $label = new Label();
+        $label = $this->createLabel();
 
         $label->setFormatter('test');
     }
