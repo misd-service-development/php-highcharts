@@ -36,14 +36,14 @@ interface ChartInterface
     /**
      * Gets the chart title.
      *
-     * @return string Title.
+     * @return string|null Title, or `null` if not set.
      */
     public function getTitle();
 
     /**
      * Sets the chart title.
      *
-     * @param string $title Chart title.
+     * @param string|null $title Chart title, or `null` to remove the existing value.
      *
      * @return self Reference to the chart.
      */
@@ -52,14 +52,14 @@ interface ChartInterface
     /**
      * Gets the chart subtitle;
      *
-     * @return string Subtitle.
+     * @return string|null Subtitle.
      */
     public function getSubtitle();
 
     /**
      * Sets the chart subtitle.
      *
-     * @param string $subtitle Subtitle.
+     * @param string|null $subtitle Subtitle, or `null` to remove the existing value.
      *
      * @return self Reference to the chart.
      */

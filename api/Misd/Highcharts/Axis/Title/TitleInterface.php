@@ -57,7 +57,7 @@ interface TitleInterface extends StyleableInterface
     /**
      * Sets the text.
      *
-     * @param string $text Text.
+     * @param string|null $text Text, or `null` to remove the existing value.
      *
      * @return self Reference to the title.
      */
