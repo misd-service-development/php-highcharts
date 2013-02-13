@@ -192,4 +192,33 @@ abstract class AbstractAxis implements AxisInterface
 
         return $this;
     }
+
+    /**
+     * Tick width.
+     *
+     * @var int
+     */
+    protected $tickWidth = 0;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTickWidth()
+    {
+        return $this->tickWidth;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTickWidth($tickWidth)
+    {
+        if (false === is_int($tickWidth)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->tickWidth = $tickWidth;
+
+        return $this;
+    }
 }

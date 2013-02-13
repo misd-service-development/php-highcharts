@@ -25,4 +25,9 @@ class XAxis extends AbstractAxis implements XAxisInterface
     {
         return new self();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected $tickWidth = 1;
 }

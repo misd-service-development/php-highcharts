@@ -230,6 +230,7 @@ class Renderer implements RendererInterface
         if (null !== $axis->getLabel()->getFormatter()) {
             $options['labels']['formatter'] = $axis->getLabel()->getFormatter();
         }
+        $options['tickWidth'] = $axis->getTickWidth();
 
         return $options;
     }

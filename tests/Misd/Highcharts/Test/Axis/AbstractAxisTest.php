@@ -106,4 +106,23 @@ class AbstractAxisTest extends TestCase
 
         $axis->setShowLastLabel(null);
     }
+
+    public function testTickWidth()
+    {
+        $axis = $this->getAxis();
+
+        $this->assertTrue(is_int($axis->getTickWidth()));
+        $this->assertSame($axis, $axis->setTickWidth(10));
+        $this->assertSame(10, $axis->getTickWidth());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testTickWidthInvalidArgumentException()
+    {
+        $axis = $this->getAxis();
+
+        $axis->setTickWidth(null);
+    }
 }

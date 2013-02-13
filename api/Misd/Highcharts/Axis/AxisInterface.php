@@ -13,6 +13,7 @@ namespace Misd\Highcharts\Axis;
 
 use Misd\Highcharts\Axis\Label\LabelInterface;
 use Misd\Highcharts\Axis\Title\TitleInterface;
+use Misd\Highcharts\Exception\InvalidArgumentException;
 
 /**
  * Axis.
@@ -84,4 +85,22 @@ interface AxisInterface
     public function isShowLastLabel();
 
     public function setShowLastLabel($showLastLabel = true);
+
+    /**
+     * Gets the tick width.
+     *
+     * @return int Tick width.
+     */
+    public function getTickWidth();
+
+    /**
+     * Sets the tick width.
+     *
+     * @param int $tickWidth Tick width.
+     *
+     * @return self Reference to the axis.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setTickWidth($tickWidth);
 }
