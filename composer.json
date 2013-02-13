@@ -19,6 +19,12 @@
         "zendframework/zend-json":"dev-master",
         "zendframework/zend-stdlib":"dev-master"
     },
+    "require-dev":{
+        "symfony/event-dispatcher":"~2.1"
+    },
+    "suggest":{
+        "symfony/event-dispatcher":""
+    },
     "autoload":{
         "psr-0":{
             "Misd\\Highcharts":["api/", "src/"]

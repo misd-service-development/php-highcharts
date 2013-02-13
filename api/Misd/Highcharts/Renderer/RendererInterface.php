@@ -12,9 +12,24 @@
 namespace Misd\Highcharts\Renderer;
 
 use Misd\Highcharts\ChartInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 interface RendererInterface
 {
+    /**
+     * Gets the event dispatcher.
+     *
+     * @return EventDispatcherInterface|null Event dispatcher, or `null` if not set.
+     */
+    public function getDispatcher();
+
+    /**
+     * Sets the event dispatcher.
+     *
+     * @param EventDispatcherInterface $dispatcher Event dispatcher.
+     */
+    public function setDispatcher(EventDispatcherInterface $dispatcher);
+
     /**
      * @param ChartInterface $chart
      * @param string         $element

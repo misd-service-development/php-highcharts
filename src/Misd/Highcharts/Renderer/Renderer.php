@@ -18,6 +18,7 @@ use Misd\Highcharts\ChartInterface;
 use Misd\Highcharts\DataPoint\DataPointInterface;
 use Misd\Highcharts\DataPoint\PieDataPointInterface;
 use Misd\Highcharts\Exception\UnexpectedValueException;
+use Misd\Highcharts\Renderer\Event\RenderEvent;
 use Misd\Highcharts\Series\AreaSeriesInterface;
 use Misd\Highcharts\Series\AreaSplineSeriesInterface;
 use Misd\Highcharts\Series\BarSeriesInterface;
@@ -30,10 +31,34 @@ use Misd\Highcharts\Series\SequentialSeriesInterface;
 use Misd\Highcharts\Series\SeriesInterface;
 use Misd\Highcharts\Series\SplineSeriesInterface;
 use Misd\Highcharts\Series\StackableSeriesInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Zend\Json\Json;
 
 class Renderer implements RendererInterface
 {
+    /**
+     * Event dispatcher.
+     *
+     * @var EventDispatcherInterface|null
+     */
+    protected $dispatcher;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDispatcher()
+    {
+        return $this->dispatcher;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDispatcher(EventDispatcherInterface $dispatcher)
+    {
+        $this->dispatcher = $dispatcher;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -62,6 +87,11 @@ class Renderer implements RendererInterface
      */
     public function render(ChartInterface $chart)
     {
+        if (null !== $this->dispatcher) {
+            $event = new RenderEvent($chart);
+            $this->dispatcher->dispatch('highcharts.render', $event);
+        }
+
         $options = $this->renderChart($chart);
 
         $options = Json::encode($options, false, array('enableJsonExprFinder' => true));
