@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="./tests/bootstrap.php">
+    <testsuites>
+        <testsuite name="Highcharts Test Suite">
+            <directory suffix="Test.php">./tests/Misd/Highcharts/</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src/Misd/Highcharts/</directory>
+        </whitelist>
+    </filter>
+</phpunit>

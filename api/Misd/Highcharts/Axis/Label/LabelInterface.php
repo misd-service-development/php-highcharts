@@ -1,0 +1,91 @@
+<?php
+
+/*
+ * This file is part of the PHP Highcharts library.
+ *
+ * (c) University of Cambridge
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Misd\Highcharts\Axis\Label;
+
+use Misd\Highcharts\FormatableInterface;
+use Misd\Highcharts\StyleableInterface;
+
+/**
+ * Axis label.
+ *
+ * @author Chris Wilkinson <chris.wilkinson@admin.cam.ac.uk>
+ */
+interface LabelInterface extends FormatableInterface, StyleableInterface
+{
+    const ALIGN_LEFT = 'left';
+    const ALIGN_CENTER = 'center';
+    const ALIGN_RIGHT = 'right';
+
+    /**
+     * Whether the label is enabled.
+     *
+     * @return bool `true` if enabled, otherwise `false`.
+     */
+    public function isEnabled();
+
+    /**
+     * Sets whether the label is enabled.
+     *
+     * @param bool $enabled `true` if enabled, otherwise `false`.
+     *
+     * @return self Reference to the label.
+     */
+    public function setEnabled($enabled = true);
+
+    /**
+     * Gets the alignment.
+     *
+     * @return string|null Alignment, or `null` if not set.
+     */
+    public function getAlign();
+
+    /**
+     * Sets the alignment.
+     *
+     * @param string|null $align Alignment, or `null` to remove the existing value.
+     *
+     * @return self Reference to the label.
+     */
+    public function setAlign($align);
+
+    /**
+     * Gets the x-offset.
+     *
+     * @return int|null X-offset, or `null` if not set.
+     */
+    public function getXOffset();
+
+    /**
+     * Sets the x-offset.
+     *
+     * @param int|null $xOffset X-offset, or `null` to remove a set value.
+     *
+     * @return self Reference to the label.
+     */
+    public function setXOffset($xOffset);
+
+    /**
+     * Gets the y-offset.
+     *
+     * @return int|null Y-offset, or `null` if not set.
+     */
+    public function getYOffset();
+
+    /**
+     * Sets the y-offset.
+     *
+     * @param int|null $yOffset Y-offset, or `null` to remove a set value.
+     *
+     * @return self Reference to the label.
+     */
+    public function setYOffset($yOffset);
+}
