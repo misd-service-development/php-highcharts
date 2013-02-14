@@ -11,6 +11,8 @@
 
 namespace Misd\Highcharts\Series;
 
+use Misd\Highcharts\Exception\InvalidArgumentException;
+
 /**
  * Stackable series.
  *
@@ -34,6 +36,16 @@ interface StackableSeriesInterface extends SequentialSeriesInterface
      */
     public function isPercentageStacking();
 
+    /**
+     * Sets whether the series is stacking.
+     *
+     * @param bool $stacking   `true` if the series is stacking, otherwise `false`.
+     * @param bool $percentage `true` if the series is stacking by percentage, otherwise `false`.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
     public function setStacking($stacking = true, $percentage = false);
 
     /**
