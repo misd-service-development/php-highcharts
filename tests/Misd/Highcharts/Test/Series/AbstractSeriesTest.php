@@ -134,6 +134,32 @@ class AbstractSeriesTest extends TestCase
         $series->setLabelsFormatter('test');
     }
 
+    public function testEnableMouseTracking()
+    {
+        $series = $this->getSeries();
+
+        $this->assertTrue($series->isEnableMouseTracking());
+        $this->assertSame($series, $series->setEnableMouseTracking(false));
+        $this->assertFalse($series->isEnableMouseTracking());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testEnableMouseTrackingInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setEnableMouseTracking('test');
+    }
+
+    public function testMarker()
+    {
+        $series = $this->getSeries();
+
+        $this->assertInstanceOf('Misd\Highcharts\Series\Marker\MarkerInterface', $series->getMarker());
+    }
+
     public function testWeight()
     {
         $series = $this->getSeries();

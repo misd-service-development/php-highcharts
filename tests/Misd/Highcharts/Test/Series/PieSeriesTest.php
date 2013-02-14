@@ -20,6 +20,11 @@ class PieSeriesTest extends AbstractSeriesTest
         return new PieSeries();
     }
 
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\Series\PieSeriesInterface', PieSeries::factory());
+    }
+
     public function testXPosition()
     {
         $series = $this->getSeries();

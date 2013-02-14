@@ -11,17 +11,17 @@
 
 namespace Misd\Highcharts\Test\Series;
 
-use Misd\Highcharts\Series\SplineSeries;
+use Misd\Highcharts\Series\LineSeries;
 
-class SplineSeriesTest extends AbstractSeriesTest
+class LineSeriesTest extends AbstractSequentialSeriesTest
 {
     public function getSeries()
     {
-        return new SplineSeries();
+        return new LineSeries();
     }
 
     public function testFactory()
     {
-        $this->assertInstanceOf('Misd\Highcharts\Series\SplineSeriesInterface', SplineSeries::factory());
+        $this->assertInstanceOf('Misd\Highcharts\Series\LineSeriesInterface', LineSeries::factory());
     }
 }

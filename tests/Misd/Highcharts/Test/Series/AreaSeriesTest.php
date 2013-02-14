@@ -19,4 +19,9 @@ class AreaSeriesTest extends AbstractStackableSeriesTest
     {
         return new AreaSeries();
     }
+
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\Series\AreaSeriesInterface', AreaSeries::factory());
+    }
 }

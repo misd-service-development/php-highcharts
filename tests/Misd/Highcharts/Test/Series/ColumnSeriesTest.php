@@ -19,4 +19,9 @@ class ColumnSeriesTest extends AbstractStackableSeriesTest
     {
         return new ColumnSeries();
     }
+
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\Series\ColumnSeriesInterface', ColumnSeries::factory());
+    }
 }
