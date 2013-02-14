@@ -341,6 +341,10 @@ class Renderer implements RendererInterface
         $options['marker'] = $this->renderMarker($series->getMarker());
         $options['enableMouseTracking'] = $series->isEnableMouseTracking();
 
+        if (null !== $series->getCursor()) {
+            $options['cursor'] = $series->getCursor();
+        }
+
         if ($series instanceof SequentialSeriesInterface) {
             $options['pointStart'] = $series->getPointStart();
         }

@@ -164,6 +164,22 @@ interface SeriesInterface
     public function setEnableMouseTracking($enabledMouseTracking = true);
 
     /**
+     * Gets the cursor.
+     *
+     * @return string|null Cursor, or `null` if not set.
+     */
+    public function getCursor();
+
+    /**
+     * Sets the cursor.
+     *
+     * @param string|null $cursor Cursor, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     */
+    public function setCursor($cursor);
+
+    /**
      * Gets the weight.
      *
      * @return int Weight.

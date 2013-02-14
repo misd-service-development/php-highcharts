@@ -160,6 +160,16 @@ class AbstractSeriesTest extends TestCase
         $this->assertInstanceOf('Misd\Highcharts\Series\Marker\MarkerInterface', $series->getMarker());
     }
 
+    public function testCursor()
+    {
+        $series = $this->getSeries();
+
+        $this->assertSame($series, $series->setCursor('pointer'));
+        $this->assertSame('pointer', $series->getCursor());
+        $this->assertSame($series, $series->setCursor(null));
+        $this->assertNull($series->getCursor());
+    }
+
     public function testWeight()
     {
         $series = $this->getSeries();

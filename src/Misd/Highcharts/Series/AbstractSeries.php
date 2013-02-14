@@ -256,6 +256,31 @@ abstract class AbstractSeries implements SeriesInterface
     }
 
     /**
+     * Cursor.
+     *
+     * @var string|null
+     */
+    protected $cursor;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCursor()
+    {
+        return $this->cursor;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCursor($cursor)
+    {
+        $this->cursor = $cursor;
+
+        return $this;
+    }
+
+    /**
      * Weight.
      *
      * @var int
