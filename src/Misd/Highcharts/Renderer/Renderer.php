@@ -204,11 +204,18 @@ class Renderer implements RendererInterface
      */
     protected function renderTooltip(TooltipInterface $tooltip)
     {
-        return array(
+        $options = array(
             'enabled' => $tooltip->isEnabled(),
-            'formatter' => $tooltip->getFormatter(),
-            'style' => $tooltip->getStyles(),
         );
+
+        if (null !== $tooltip->getFormatter()) {
+            $options['formatter'] = $tooltip->getFormatter();
+        }
+        if (0 < count($tooltip->getStyles())) {
+            $options['style'] = $tooltip->getStyles();
+        }
+
+        return $options;
     }
 
     /**
