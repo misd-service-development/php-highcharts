@@ -202,4 +202,130 @@ interface SeriesInterface
      * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setWeight($weight);
+
+    /**
+     * Gets the checkbox click event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getCheckboxClickEvent();
+
+    /**
+     * Sets the checkbox click event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setCheckboxClickEvent($event);
+
+    /**
+     * Gets the click event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getClickEvent();
+
+    /**
+     * Sets the click event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setClickEvent($event);
+
+    /**
+     * Gets the hide event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getHideEvent();
+
+    /**
+     * Sets the hide event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setHideEvent($event);
+
+    /**
+     * Gets the legend item click event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getLegendItemClickEvent();
+
+    /**
+     * Sets the legend item click event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setLegendItemClickEvent($event);
+
+    /**
+     * Gets the mouse out event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getMouseOutEvent();
+
+    /**
+     * Sets the mouse out event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setMouseOutEvent($event);
+
+    /**
+     * Gets the mouse over event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getMouseOverEvent();
+
+    /**
+     * Sets the mouse over event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setMouseOverEvent($event);
+
+    /**
+     * Gets the show event.
+     *
+     * @return Expr|null Event, or `null` if not set.
+     */
+    public function getShowEvent();
+
+    /**
+     * Sets the show event.
+     *
+     * @param Expr|null $event Event, or `null` to remove the existing value.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setShowEvent($event);
 }

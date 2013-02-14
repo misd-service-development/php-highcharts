@@ -358,6 +358,34 @@ class Renderer implements RendererInterface
             }
         }
 
+        $events = array();
+
+        if (null !== $series->getCheckboxClickEvent()) {
+            $events['checkboxClick'] = $series->getCheckboxClickEvent();
+        }
+        if (null !== $series->getClickEvent()) {
+            $events['click'] = $series->getClickEvent();
+        }
+        if (null !== $series->getHideEvent()) {
+            $events['hide'] = $series->getHideEvent();
+        }
+        if (null !== $series->getLegendItemClickEvent()) {
+            $events['legendItemClick'] = $series->getLegendItemClickEvent();
+        }
+        if (null !== $series->getMouseOutEvent()) {
+            $events['mouseOut'] = $series->getMouseOutEvent();
+        }
+        if (null !== $series->getMouseOverEvent()) {
+            $events['mouseOver'] = $series->getMouseOverEvent();
+        }
+        if (null !== $series->getShowEvent()) {
+            $events['show'] = $series->getShowEvent();
+        }
+
+        if (count($events) > 0) {
+            $options['events'] = $events;
+        }
+
         if ($series instanceof PieSeriesInterface) {
             if (null !== $series->getXPosition() && null !== $series->getYPosition()) {
                 $xPosition = true === $series->isXPositionAPercentage() ?

@@ -308,4 +308,207 @@ abstract class AbstractSeries implements SeriesInterface
 
         return $this;
     }
+
+    /**
+     * Checkbox click event.
+     *
+     * @var Expr|null
+     */
+    protected $checkboxClickEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCheckboxClickEvent()
+    {
+        return $this->checkboxClickEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCheckboxClickEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->checkboxClickEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     * Click event.
+     *
+     * @var Expr|null
+     */
+    protected $clickEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getClickEvent()
+    {
+        return $this->clickEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setClickEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->clickEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     *  event.
+     *
+     * @var Expr|null
+     */
+    protected $hideEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHideEvent()
+    {
+        return $this->hideEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setHideEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->hideEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     *  event.
+     *
+     * @var Expr|null
+     */
+    protected $legendItemClickEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLegendItemClickEvent()
+    {
+        return $this->legendItemClickEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setLegendItemClickEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->legendItemClickEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     * Mouse out event.
+     *
+     * @var Expr|null
+     */
+    protected $mouseOutEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMouseOutEvent()
+    {
+        return $this->mouseOutEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMouseOutEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->mouseOutEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     * Mouse over event.
+     *
+     * @var Expr|null
+     */
+    protected $mouseOverEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMouseOverEvent()
+    {
+        return $this->mouseOverEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMouseOverEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->mouseOverEvent = $event;
+
+        return $this;
+    }
+
+    /**
+     * Show event.
+     *
+     * @var Expr|null
+     */
+    protected $showEvent;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getShowEvent()
+    {
+        return $this->showEvent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShowEvent($event)
+    {
+        if (false === $event instanceof Expr && false === is_null($event)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->showEvent = $event;
+
+        return $this;
+    }
 }

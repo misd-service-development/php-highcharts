@@ -188,4 +188,158 @@ class AbstractSeriesTest extends TestCase
 
         $series->setWeight('test');
     }
+
+    public function testCheckboxClickEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setCheckboxClickEvent($event));
+        $this->assertSame($event, $series->getCheckboxClickEvent());
+        $this->assertSame($series, $series->setCheckboxClickEvent(null));
+        $this->assertNull($series->getCheckboxClickEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testCheckboxClickEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setCheckboxClickEvent('test');
+    }
+
+    public function testClickEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setClickEvent($event));
+        $this->assertSame($event, $series->getClickEvent());
+        $this->assertSame($series, $series->setClickEvent(null));
+        $this->assertNull($series->getClickEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testClickEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setClickEvent('test');
+    }
+
+    public function testHideEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setHideEvent($event));
+        $this->assertSame($event, $series->getHideEvent());
+        $this->assertSame($series, $series->setHideEvent(null));
+        $this->assertNull($series->getHideEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testHideEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setHideEvent('test');
+    }
+
+    public function testLegendItemClickEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setLegendItemClickEvent($event));
+        $this->assertSame($event, $series->getLegendItemClickEvent());
+        $this->assertSame($series, $series->setLegendItemClickEvent(null));
+        $this->assertNull($series->getLegendItemClickEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testLegendItemClickEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setLegendItemClickEvent('test');
+    }
+
+    public function testMouseOutEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setMouseOutEvent($event));
+        $this->assertSame($event, $series->getMouseOutEvent());
+        $this->assertSame($series, $series->setMouseOutEvent(null));
+        $this->assertNull($series->getMouseOutEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testMouseOutEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setMouseOutEvent('test');
+    }
+
+    public function testMouseOverEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setMouseOverEvent($event));
+        $this->assertSame($event, $series->getMouseOverEvent());
+        $this->assertSame($series, $series->setMouseOverEvent(null));
+        $this->assertNull($series->getMouseOverEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testMouseOverEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setMouseOverEvent('test');
+    }
+
+    public function testShowEvent()
+    {
+        $series = $this->getSeries();
+
+        $event = $this->getMock('Zend\Json\Expr', array(), array('test'));
+
+        $this->assertSame($series, $series->setShowEvent($event));
+        $this->assertSame($event, $series->getShowEvent());
+        $this->assertSame($series, $series->setShowEvent(null));
+        $this->assertNull($series->getShowEvent());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testShowEventInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setShowEvent('test');
+    }
 }
