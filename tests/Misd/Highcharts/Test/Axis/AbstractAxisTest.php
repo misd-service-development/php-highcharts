@@ -69,44 +69,6 @@ class AbstractAxisTest extends TestCase
         $axis->setOpposite(null);
     }
 
-    public function testShowFirstLabel()
-    {
-        $axis = $this->getAxis();
-
-        $this->assertTrue($axis->isShowFirstLabel());
-        $this->assertSame($axis, $axis->setShowFirstLabel(false));
-        $this->assertFalse($axis->isShowFirstLabel());
-    }
-
-    /**
-     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
-     */
-    public function testShowFirstLabelInvalidArgumentException()
-    {
-        $axis = $this->getAxis();
-
-        $axis->setShowFirstLabel(null);
-    }
-
-    public function testShowLastLabel()
-    {
-        $axis = $this->getAxis();
-
-        $this->assertTrue($axis->isShowLastLabel());
-        $this->assertSame($axis, $axis->setShowLastLabel(false));
-        $this->assertFalse($axis->isShowLastLabel());
-    }
-
-    /**
-     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
-     */
-    public function testShowLastLabelInvalidArgumentException()
-    {
-        $axis = $this->getAxis();
-
-        $axis->setShowLastLabel(null);
-    }
-
     public function testTickWidth()
     {
         $axis = $this->getAxis();

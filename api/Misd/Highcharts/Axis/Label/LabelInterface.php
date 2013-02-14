@@ -14,6 +14,7 @@ namespace Misd\Highcharts\Axis\Label;
 use Misd\Highcharts\Axis\AxisInterface;
 use Misd\Highcharts\FormatableInterface;
 use Misd\Highcharts\StyleableInterface;
+use Misd\Highcharts\Exception\InvalidArgumentException;
 
 /**
  * Axis label.
@@ -96,4 +97,40 @@ interface LabelInterface extends FormatableInterface, StyleableInterface
      * @return self Reference to the label.
      */
     public function setYOffset($yOffset);
+
+    /**
+     * Whether the first label is shown.
+     *
+     * @return bool `true` if shown, otherwise `false`.
+     */
+    public function isShowFirst();
+
+    /**
+     * Sets whether the first label is shown.
+     *
+     * @param bool $showFirst `true` if shown, otherwise `false`.
+     *
+     * @return self Reference to the label.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setShowFirst($showFirst = true);
+
+    /**
+     * Whether the last label is shown.
+     *
+     * @return bool `true` if shown, otherwise `false`.
+     */
+    public function isShowLast();
+
+    /**
+     * Sets whether the last label is shown.
+     *
+     * @param bool $showLast `true` if shown, otherwise `false`.
+     *
+     * @return self Reference to the label.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setShowLast($showLast = true);
 }

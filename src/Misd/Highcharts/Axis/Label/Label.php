@@ -209,6 +209,64 @@ class Label implements LabelInterface
     }
 
     /**
+     * Show first label.
+     *
+     * @var bool
+     */
+    protected $showFirst = true;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isShowFirst()
+    {
+        return $this->showFirst;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShowFirst($showFirst = true)
+    {
+        if (false === is_bool($showFirst)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->showFirst = $showFirst;
+
+        return $this;
+    }
+
+    /**
+     * Show last label.
+     *
+     * @var bool
+     */
+    protected $showLast = true;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isShowLast()
+    {
+        return $this->showLast;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShowLast($showLast = true)
+    {
+        if (false === is_bool($showLast)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->showLast = $showLast;
+
+        return $this;
+    }
+
+    /**
      * Formatter.
      *
      * @var Expr|null

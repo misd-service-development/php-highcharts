@@ -136,64 +136,6 @@ abstract class AbstractAxis implements AxisInterface
     }
 
     /**
-     * Show first label.
-     *
-     * @var bool
-     */
-    protected $showFirstLabel = true;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isShowFirstLabel()
-    {
-        return $this->showFirstLabel;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setShowFirstLabel($showFirstLabel = true)
-    {
-        if (false === is_bool($showFirstLabel)) {
-            throw new InvalidArgumentException();
-        }
-
-        $this->showFirstLabel = $showFirstLabel;
-
-        return $this;
-    }
-
-    /**
-     * Show last label.
-     *
-     * {@inheritdoc}
-     */
-    protected $showLastLabel = true;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function isShowLastLabel()
-    {
-        return $this->showLastLabel;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setShowLastLabel($showLastLabel = true)
-    {
-        if (false === is_bool($showLastLabel)) {
-            throw new InvalidArgumentException();
-        }
-
-        $this->showLastLabel = $showLastLabel;
-
-        return $this;
-    }
-
-    /**
      * Tick width.
      *
      * @var int

@@ -139,6 +139,44 @@ class LabelTest extends TestCase
         $label->setYOffset('test');
     }
 
+    public function testShowFirst()
+    {
+        $label = $this->createLabel();
+
+        $this->assertTrue($label->isShowFirst());
+        $this->assertSame($label, $label->setShowFirst(false));
+        $this->assertFalse($label->isShowFirst());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testShowFirstInvalidArgumentException()
+    {
+        $label = $this->createLabel();
+
+        $label->setShowFirst(null);
+    }
+
+    public function testShowLast()
+    {
+        $label = $this->createLabel();
+
+        $this->assertTrue($label->isShowLast());
+        $this->assertSame($label, $label->setShowLast(false));
+        $this->assertFalse($label->isShowLast());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testShowLastInvalidArgumentException()
+    {
+        $label = $this->createLabel();
+
+        $label->setShowLast(null);
+    }
+
     public function testFormatter()
     {
         $label = $this->createLabel();

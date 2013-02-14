@@ -92,14 +92,6 @@ interface AxisInterface
      */
     public function setOpposite($opposite = true);
 
-    public function isShowFirstLabel();
-
-    public function setShowFirstLabel($showFirstLabel = true);
-
-    public function isShowLastLabel();
-
-    public function setShowLastLabel($showLastLabel = true);
-
     /**
      * Gets the tick width.
      *

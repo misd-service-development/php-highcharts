@@ -222,8 +222,8 @@ class Renderer implements RendererInterface
     {
         $options = array(
             'opposite' => $axis->isOpposite(),
-            'showFirstLabel' => $axis->isShowFirstLabel(),
-            'showLastLabel' => $axis->isShowLastLabel(),
+            'showFirstLabel' => $axis->getLabel()->isShowFirst(),
+            'showLastLabel' => $axis->getLabel()->isShowLast(),
         );
 
         if (0 < count($axis->getCategories())) {
