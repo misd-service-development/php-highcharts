@@ -153,7 +153,7 @@ interface SeriesInterface
     public function isEnableMouseTracking();
 
     /**
-     * Set enable mouse tracking.
+     * Sets enable mouse tracking.
      *
      * @param bool $enabledMouseTracking `true` if enabled, otherwise `false.
      *
