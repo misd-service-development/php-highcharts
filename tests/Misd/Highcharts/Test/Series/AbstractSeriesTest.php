@@ -342,4 +342,11 @@ class AbstractSeriesTest extends TestCase
 
         $series->setShowEvent('test');
     }
+
+    public function testAnimation()
+    {
+        $series = $this->getSeries();
+
+        $this->assertInstanceOf('Misd\Highcharts\Series\Animation\AnimationInterface', $series->getAnimation());
+    }
 }

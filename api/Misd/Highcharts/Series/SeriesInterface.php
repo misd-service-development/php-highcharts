@@ -15,6 +15,7 @@ use Misd\Highcharts\Axis\XAxisInterface;
 use Misd\Highcharts\Axis\YAxisInterface;
 use Misd\Highcharts\DataPoint\DataPointInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
+use Misd\Highcharts\Series\Animation\AnimationInterface;
 use Misd\Highcharts\Series\Marker\MarkerInterface;
 use Zend\Json\Expr;
 
@@ -328,4 +329,11 @@ interface SeriesInterface
      * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setShowEvent($event);
+
+    /**
+     * Gets the animation.
+     *
+     * @return AnimationInterface Animation.
+     */
+    public function getAnimation();
 }

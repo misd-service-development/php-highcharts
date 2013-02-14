@@ -16,6 +16,8 @@ use Misd\Highcharts\Axis\YAxisInterface;
 use Misd\Highcharts\DataPoint\DataPoint;
 use Misd\Highcharts\DataPoint\DataPointInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
+use Misd\Highcharts\Series\Animation\Animation;
+use Misd\Highcharts\Series\Animation\AnimationInterface;
 use Misd\Highcharts\Series\Marker\Marker;
 use Misd\Highcharts\Series\Marker\MarkerInterface;
 use Zend\Json\Expr;
@@ -33,6 +35,7 @@ abstract class AbstractSeries implements SeriesInterface
     public function __construct()
     {
         $this->marker = new Marker($this);
+        $this->animation = new Animation($this);
     }
 
     /**
@@ -510,5 +513,20 @@ abstract class AbstractSeries implements SeriesInterface
         $this->showEvent = $event;
 
         return $this;
+    }
+
+    /**
+     * Animation.
+     *
+     * @var AnimationInterface
+     */
+    protected $animation;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAnimation()
+    {
+        return $this->animation;
     }
 }

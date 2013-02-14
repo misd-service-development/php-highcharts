@@ -386,6 +386,23 @@ class Renderer implements RendererInterface
             $options['events'] = $events;
         }
 
+        if (false === $series->getAnimation()->isEnabled()) {
+            $options['animation'] = false;
+        } else {
+            $animation = array();
+
+            if (null !== $series->getAnimation()->getDuration()) {
+                $animation['duration'] = $series->getAnimation()->getDuration();
+            }
+            if (null !== $series->getAnimation()->getEasing()) {
+                $animation['easing'] = $series->getAnimation()->getEasing();
+            }
+
+            if (count($animation) > 0) {
+                $options['animation'] = $animation;
+            }
+        }
+
         if ($series instanceof PieSeriesInterface) {
             if (null !== $series->getXPosition() && null !== $series->getYPosition()) {
                 $xPosition = true === $series->isXPositionAPercentage() ?
