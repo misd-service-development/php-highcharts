@@ -254,4 +254,33 @@ abstract class AbstractSeries implements SeriesInterface
 
         return $this;
     }
+
+    /**
+     * Weight.
+     *
+     * @var int
+     */
+    protected $weight = 0;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setWeight($weight)
+    {
+        if (false === is_int($weight)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->weight = $weight;
+
+        return $this;
+    }
 }

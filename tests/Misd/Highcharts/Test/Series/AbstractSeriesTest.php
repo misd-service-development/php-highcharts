@@ -133,4 +133,23 @@ class AbstractSeriesTest extends TestCase
 
         $series->setLabelsFormatter('test');
     }
+
+    public function testWeight()
+    {
+        $series = $this->getSeries();
+
+        $this->assertTrue(is_int($series->getWeight()));
+        $this->assertSame($series, $series->setWeight(10));
+        $this->assertSame(10, $series->getWeight());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testWeightInvalidArgumentException()
+    {
+        $series = $this->getSeries();
+
+        $series->setWeight('test');
+    }
 }

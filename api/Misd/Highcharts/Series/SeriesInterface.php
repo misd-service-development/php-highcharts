@@ -162,4 +162,28 @@ interface SeriesInterface
      * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setEnableMouseTracking($enabledMouseTracking = true);
+
+    /**
+     * Gets the weight.
+     *
+     * @return int Weight.
+     */
+    public function getWeight();
+
+    /**
+     * Sets the weight.
+     *
+     * The weight determines the order in which the series appear. Higher
+     * values appear first.
+     *
+     * If two series have the same weight, it is assumed that the order is not
+     * important.
+     *
+     * @param int $weight Weight.
+     *
+     * @return self Reference to the series.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setWeight($weight);
 }

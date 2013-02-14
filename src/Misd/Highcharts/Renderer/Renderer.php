@@ -132,8 +132,22 @@ class Renderer implements RendererInterface
             ),
         );
 
+        $seriesGroups = array();
+
         foreach ($chart->getSeries() as $series) {
-            $options['series'][] = $this->renderSeries($series);
+            if (false === array_key_exists($series->getWeight(), $seriesGroups)) {
+                $seriesGroups[$series->getWeight()] = array();
+            }
+
+            $seriesGroups[$series->getWeight()][] = $series;
+        }
+
+        krsort($seriesGroups);
+
+        foreach ($seriesGroups as $seriesGroup) {
+            foreach ($seriesGroup as $series) {
+                $options['series'][] = $this->renderSeries($series);
+            }
         }
 
         $xAxes = $chart->getXAxes();
