@@ -185,6 +185,16 @@ abstract class AbstractChart implements ChartInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function clearSeries()
+    {
+        $this->series = array();
+
+        return $this;
+    }
+
+    /**
      * Whether to show the legend.
      *
      * @var bool

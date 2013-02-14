@@ -116,6 +116,13 @@ interface ChartInterface
     public function getSeries();
 
     /**
+     * Remove all the series.
+     *
+     * @return self Reference to the chart.
+     */
+    public function clearSeries();
+
+    /**
      * @return bool
      */
     public function hasLegend();

@@ -90,6 +90,8 @@ class ChartTest extends TestCase
         $this->assertSame($chart, $chart->addSeries($series1));
         $this->assertSame($chart, $chart->addSeries($series2));
         $this->assertSame(array($series1, $series2), $chart->getSeries());
+        $this->assertSame($chart, $chart->clearSeries());
+        $this->assertEmpty($chart->getSeries());
     }
 
     public function testLegend()
