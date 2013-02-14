@@ -42,6 +42,8 @@ interface MarkerInterface
      * @param bool $enabled `true` if enabled, otherwise `false`.
      *
      * @return self Reference to the marker.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setEnabled($enabled = true);
 

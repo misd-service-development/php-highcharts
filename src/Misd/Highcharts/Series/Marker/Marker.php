@@ -116,6 +116,8 @@ class Marker implements MarkerInterface
     public function setLineColor($lineColor)
     {
         $this->lineColor = $lineColor;
+
+        return $this;
     }
 
     /**
@@ -138,7 +140,7 @@ class Marker implements MarkerInterface
      */
     public function setLineWidth($lineWidth)
     {
-        if (false === is_int($lineWidth) && false === is_null($lineWidth)) {
+        if (false === is_int($lineWidth)) {
             throw new InvalidArgumentException();
         }
 
@@ -167,7 +169,7 @@ class Marker implements MarkerInterface
      */
     public function setRadius($radius)
     {
-        if (false === is_int($radius) && false === is_null($radius)) {
+        if (false === is_int($radius)) {
             throw new InvalidArgumentException();
         }
 
