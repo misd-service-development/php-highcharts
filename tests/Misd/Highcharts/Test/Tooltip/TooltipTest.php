@@ -18,28 +18,37 @@ use PHPUnit_Framework_TestCase as TestCase;
 class TooltipTest extends TestCase
 {
     /**
-     * @return ChartInterface
+     * @var ChartInterface
      */
-    protected function getMockChart()
+    protected $mockChart;
+
+    public function setUp()
     {
-        return $this->getMock('Misd\Highcharts\ChartInterface');
+        $this->mockChart = $this->getMock('Misd\Highcharts\ChartInterface');
     }
 
     /**
      * @return Tooltip
      */
-    protected function getTooltip()
+    protected function createTooltip()
     {
-        return new Tooltip($this->getMockChart());
+        return new Tooltip($this->mockChart);
+    }
+
+    public function testChart()
+    {
+        $tooltip = $this->createTooltip();
+
+        $this->assertSame($this->mockChart, $tooltip->getChart());
     }
 
     public function testEnabled()
     {
-        $title = $this->getTooltip();
+        $tooltip = $this->createTooltip();
 
-        $this->assertTrue($title->isEnabled());
-        $this->assertSame($title, $title->setEnabled(false));
-        $this->assertFalse($title->isEnabled());
+        $this->assertTrue($tooltip->isEnabled());
+        $this->assertSame($tooltip, $tooltip->setEnabled(false));
+        $this->assertFalse($tooltip->isEnabled());
     }
 
     /**
@@ -47,14 +56,14 @@ class TooltipTest extends TestCase
      */
     public function testEnabledInvalidArgumentException()
     {
-        $title = $this->getTooltip();
+        $tooltip = $this->createTooltip();
 
-        $title->setEnabled(null);
+        $tooltip->setEnabled(null);
     }
 
     public function testFormatter()
     {
-        $tooltip = $this->getTooltip();
+        $tooltip = $this->createTooltip();
 
         $formatter = $this->getMock('Zend\Json\Expr', array(), array('test'));
 
@@ -70,21 +79,21 @@ class TooltipTest extends TestCase
      */
     public function testFormatterInvalidArgumentException()
     {
-        $tooltip = $this->getTooltip();
+        $tooltip = $this->createTooltip();
 
         $tooltip->setFormatter('test');
     }
 
     public function testStyle()
     {
-        $title = $this->getTooltip();
+        $tooltip = $this->createTooltip();
 
-        $this->assertSame(array(), $title->getStyles());
-        $this->assertSame($title, $title->setStyle('one', 'One'));
-        $this->assertSame(array('one' => 'One'), $title->getStyles());
-        $this->assertSame($title, $title->setStyles(array('two' => 'Two', 'three' => 'Three')));
-        $this->assertSame(array('two' => 'Two', 'three' => 'Three'), $title->getStyles());
-        $this->assertSame('Three', $title->getStyle('three'));
-        $this->assertNull($title->getStyle('four'));
+        $this->assertSame(array(), $tooltip->getStyles());
+        $this->assertSame($tooltip, $tooltip->setStyle('one', 'One'));
+        $this->assertSame(array('one' => 'One'), $tooltip->getStyles());
+        $this->assertSame($tooltip, $tooltip->setStyles(array('two' => 'Two', 'three' => 'Three')));
+        $this->assertSame(array('two' => 'Two', 'three' => 'Three'), $tooltip->getStyles());
+        $this->assertSame('Three', $tooltip->getStyle('three'));
+        $this->assertNull($tooltip->getStyle('four'));
     }
 }

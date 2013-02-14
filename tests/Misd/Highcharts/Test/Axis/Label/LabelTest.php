@@ -39,6 +39,13 @@ class LabelTest extends TestCase
         return new Label($this->mockAxis);
     }
 
+    public function testAxis()
+    {
+        $label = $this->createLabel();
+
+        $this->assertSame($this->mockAxis, $label->getAxis());
+    }
+
     public function testEnabled()
     {
         $label = $this->createLabel();

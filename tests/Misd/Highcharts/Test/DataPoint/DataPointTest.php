@@ -22,4 +22,19 @@ class DataPointTest extends AbstractDataPointTest
     {
         return new DataPoint();
     }
+
+    public function testFactory()
+    {
+        $dataPoint = DataPoint::factory(null, null);
+
+        $this->assertInstanceOf('Misd\Highcharts\DataPoint\DataPointInterface', $dataPoint);
+        $this->assertNull($dataPoint->getXValue());
+        $this->assertNull($dataPoint->getYValue());
+
+        $dataPoint = DataPoint::factory(5, 10);
+
+        $this->assertInstanceOf('Misd\Highcharts\DataPoint\DataPointInterface', $dataPoint);
+        $this->assertSame(5, $dataPoint->getXValue());
+        $this->assertSame(10, $dataPoint->getYValue());
+    }
 }

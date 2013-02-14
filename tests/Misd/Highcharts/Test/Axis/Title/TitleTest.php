@@ -35,6 +35,13 @@ class TitleTest extends TestCase
         return new Title($this->mockAxis);
     }
 
+    public function testAxis()
+    {
+        $title = $this->createTitle();
+
+        $this->assertSame($this->mockAxis, $title->getAxis());
+    }
+
     public function testEnabled()
     {
         $title = $this->createTitle();

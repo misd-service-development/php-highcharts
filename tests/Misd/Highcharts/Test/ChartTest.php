@@ -16,6 +16,11 @@ use PHPUnit_Framework_TestCase as TestCase;
 
 class ChartTest extends TestCase
 {
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\ChartInterface', Chart::factory());
+    }
+
     public function testGetId()
     {
         $chart = new Chart();

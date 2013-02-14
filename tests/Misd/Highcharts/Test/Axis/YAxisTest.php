@@ -23,6 +23,11 @@ class YAxisTest extends AbstractAxisTest
         return new YAxis();
     }
 
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\Axis\YAxisInterface', YAxis::factory());
+    }
+
     public function testTooltip()
     {
         $axis = $this->getAxis();

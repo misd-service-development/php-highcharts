@@ -23,6 +23,11 @@ class XAxisTest extends AbstractAxisTest
         return new XAxis();
     }
 
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\Axis\XAxisInterface', XAxis::factory());
+    }
+
     public function testTooltip()
     {
         $axis = $this->getAxis();

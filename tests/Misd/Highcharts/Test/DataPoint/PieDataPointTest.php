@@ -23,6 +23,11 @@ class PieDataPointTest extends AbstractDataPointTest
         return new PieDataPoint();
     }
 
+    public function testFactory()
+    {
+        $this->assertInstanceOf('Misd\Highcharts\DataPoint\PieDataPointInterface', PieDataPoint::factory());
+    }
+
     public function testSliced()
     {
         $dataPoint = new PieDataPoint();
