@@ -18,6 +18,7 @@ use Misd\Highcharts\ChartInterface;
 use Misd\Highcharts\DataPoint\DataPointInterface;
 use Misd\Highcharts\DataPoint\PieDataPointInterface;
 use Misd\Highcharts\Exception\UnexpectedValueException;
+use Misd\Highcharts\Renderer\Event\OrderedSeriesEvent;
 use Misd\Highcharts\Renderer\Event\RenderEvent;
 use Misd\Highcharts\Series\AreaSeriesInterface;
 use Misd\Highcharts\Series\AreaSplineSeriesInterface;
@@ -144,10 +145,22 @@ class Renderer implements RendererInterface
 
         krsort($seriesGroups);
 
+        $orderedSeries = array();
+
         foreach ($seriesGroups as $seriesGroup) {
             foreach ($seriesGroup as $series) {
-                $options['series'][] = $this->renderSeries($series);
+                $orderedSeries[] = $series;
             }
+        }
+
+        if (null !== $this->dispatcher) {
+            $event = new OrderedSeriesEvent($chart, $orderedSeries);
+            $this->dispatcher->dispatch('highcharts.ordered_series', $event);
+            $orderedSeries = $event->series;
+        }
+
+        foreach ($orderedSeries as $series) {
+            $options['series'][] = $this->renderSeries($series);
         }
 
         $xAxes = $chart->getXAxes();
