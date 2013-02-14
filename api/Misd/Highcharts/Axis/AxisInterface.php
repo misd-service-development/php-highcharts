@@ -74,8 +74,22 @@ interface AxisInterface
      */
     public function addCategories(array $categories);
 
+    /**
+     * Whether the axis is opposite.
+     *
+     * @return bool `true` if opposite, otherwise `false`.
+     */
     public function isOpposite();
 
+    /**
+     * Sets whether the axis is opposite.
+     *
+     * @param bool $opposite `true` if opposite, otherwise `false`.
+     *
+     * @return self Reference to the axis.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
     public function setOpposite($opposite = true);
 
     public function isShowFirstLabel();
