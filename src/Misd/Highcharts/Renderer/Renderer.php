@@ -133,11 +133,11 @@ class Renderer implements RendererInterface
         $seriesGroups = array();
 
         foreach ($chart->getSeries() as $series) {
-            if (false === array_key_exists($series->getWeight(), $seriesGroups)) {
-                $seriesGroups[$series->getWeight()] = array();
+            if (false === array_key_exists((string) $series->getWeight(), $seriesGroups)) {
+                $seriesGroups[(string) $series->getWeight()] = array();
             }
 
-            $seriesGroups[$series->getWeight()][] = $series;
+            $seriesGroups[(string) $series->getWeight()][] = $series;
         }
 
         krsort($seriesGroups);

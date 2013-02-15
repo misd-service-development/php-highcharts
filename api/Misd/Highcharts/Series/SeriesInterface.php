@@ -183,7 +183,7 @@ interface SeriesInterface
     /**
      * Gets the weight.
      *
-     * @return int Weight.
+     * @return int|float Weight.
      */
     public function getWeight();
 
@@ -196,7 +196,7 @@ interface SeriesInterface
      * If two series have the same weight, it is assumed that the order is not
      * important.
      *
-     * @param int $weight Weight.
+     * @param int|float $weight Weight.
      *
      * @return self Reference to the series.
      *

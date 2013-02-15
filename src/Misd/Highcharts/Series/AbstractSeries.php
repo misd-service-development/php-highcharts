@@ -303,7 +303,7 @@ abstract class AbstractSeries implements SeriesInterface
      */
     public function setWeight($weight)
     {
-        if (false === is_int($weight)) {
+        if (false === is_int($weight) && false === is_float($weight)) {
             throw new InvalidArgumentException();
         }
 

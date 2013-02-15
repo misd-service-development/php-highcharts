@@ -177,6 +177,8 @@ class AbstractSeriesTest extends TestCase
         $this->assertTrue(is_int($series->getWeight()));
         $this->assertSame($series, $series->setWeight(10));
         $this->assertSame(10, $series->getWeight());
+        $this->assertSame($series, $series->setWeight(1.1));
+        $this->assertSame(1.1, $series->getWeight());
     }
 
     /**
