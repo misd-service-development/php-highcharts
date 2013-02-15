@@ -13,6 +13,8 @@ namespace Misd\Highcharts;
 
 use Misd\Highcharts\Axis\XAxisInterface;
 use Misd\Highcharts\Axis\YAxisInterface;
+use Misd\Highcharts\Credit\Credit;
+use Misd\Highcharts\Credit\CreditInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
 use Misd\Highcharts\Series\SeriesInterface;
 use Misd\Highcharts\Tooltip\Tooltip;
@@ -32,6 +34,7 @@ abstract class AbstractChart implements ChartInterface
     {
         $this->id = 'chart_' . uniqid();
         $this->tooltip = new Tooltip($this);
+        $this->credit = new Credit($this);
     }
 
     /**
@@ -236,5 +239,20 @@ abstract class AbstractChart implements ChartInterface
     public function getTooltip()
     {
         return $this->tooltip;
+    }
+
+    /**
+     * Credit.
+     *
+     * @var CreditInterface
+     */
+    protected $credit;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCredit()
+    {
+        return $this->credit;
     }
 }

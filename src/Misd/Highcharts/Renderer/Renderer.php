@@ -128,9 +128,6 @@ class Renderer implements RendererInterface
                 'enabled' => $chart->hasLegend(),
             ),
             'tooltip' => $this->renderTooltip($chart->getTooltip()),
-            'credits' => array(
-                'enabled' => false,
-            ),
         );
 
         $seriesGroups = array();
@@ -204,6 +201,34 @@ class Renderer implements RendererInterface
                 $value = array_search($value, $yAxes, true);
             }
         );
+
+        $credits = array(
+            'enabled' => $chart->getCredit()->isEnabled(),
+        );
+
+        if (null !== $chart->getCredit()->getText()) {
+            $credits['text'] = $chart->getCredit()->getText();
+        }
+        if (null !== $chart->getCredit()->getUrl()) {
+            $credits['href'] = $chart->getCredit()->getUrl();
+        }
+        if (null !== $chart->getCredit()->getHorizontalAlignment()) {
+            $credits['position']['align'] = $chart->getCredit()->getHorizontalAlignment();
+        }
+        if (null !== $chart->getCredit()->getVerticalAlignment()) {
+            $credits['position']['verticalAlign'] = $chart->getCredit()->getVerticalAlignment();
+        }
+        if (null !== $chart->getCredit()->getXPosition()) {
+            $credits['position']['x'] = $chart->getCredit()->getXPosition();
+        }
+        if (null !== $chart->getCredit()->getYPosition()) {
+            $credits['position']['y'] = $chart->getCredit()->getYPosition();
+        }
+        if (0 < count($chart->getCredit()->getStyles())) {
+            $credits['style'] = $chart->getCredit()->getStyles();
+        }
+
+        $options['credits'] = $credits;
 
         return $options;
     }

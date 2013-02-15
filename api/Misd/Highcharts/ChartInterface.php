@@ -13,6 +13,7 @@ namespace Misd\Highcharts;
 
 use Misd\Highcharts\Axis\XAxisInterface;
 use Misd\Highcharts\Axis\YAxisInterface;
+use Misd\Highcharts\Credit\CreditInterface;
 use Misd\Highcharts\Series\SeriesInterface;
 use Misd\Highcharts\Tooltip\TooltipInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
@@ -140,4 +141,11 @@ interface ChartInterface
      * @return TooltipInterface Tooltip.
      */
     public function getTooltip();
+
+    /**
+     * Gets the credits.
+     *
+     * @return CreditInterface Credit.
+     */
+    public function getCredit();
 }

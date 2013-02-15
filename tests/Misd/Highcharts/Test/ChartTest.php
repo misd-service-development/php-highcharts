@@ -121,4 +121,11 @@ class ChartTest extends TestCase
 
         $this->assertInstanceOf('Misd\Highcharts\Tooltip\TooltipInterface', $chart->getTooltip());
     }
+
+    public function testCredits()
+    {
+        $chart = new Chart();
+
+        $this->assertInstanceOf('Misd\Highcharts\Credit\CreditInterface', $chart->getCredit());
+    }
 }
