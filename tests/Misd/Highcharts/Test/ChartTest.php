@@ -94,6 +94,26 @@ class ChartTest extends TestCase
         $this->assertEmpty($chart->getSeries());
     }
 
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testSeriesInvalidArgumentExceptionOnIndividual()
+    {
+        $chart = new Chart();
+
+        $chart->addSeries('test');
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testSeriesInvalidArgumentExceptionOnArray()
+    {
+        $chart = new Chart();
+
+        $chart->addSeries(array($this->getMock('Misd\Highcharts\Series\SeriesInterface'), 'test'));
+    }
+
     public function testLegend()
     {
         $chart = new Chart();
