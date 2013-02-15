@@ -13,6 +13,11 @@ namespace Misd\Highcharts\Exception;
 
 use InvalidArgumentException as BaseInvalidArgumentException;
 
+/**
+ * Exception thrown if an argument does not match with the expected value.
+ *
+ * @author Chris Wilkinson <chris.wilkinson@admin.cam.ac.uk>
+ */
 class InvalidArgumentException extends BaseInvalidArgumentException
 {
 }
