@@ -107,6 +107,64 @@ abstract class AbstractAxis implements AxisInterface
     }
 
     /**
+     * Maximum value.
+     *
+     * @var int|float|null
+     */
+    protected $maxValue;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMaxValue()
+    {
+        return $this->maxValue;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMaxValue($maxValue)
+    {
+        if (false === is_int($maxValue) && false === is_float($maxValue) && false === is_null($maxValue)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->maxValue = $maxValue;
+
+        return $this;
+    }
+
+    /**
+     * Minimum value.
+     *
+     * @var int|float|null
+     */
+    protected $minValue;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMinValue()
+    {
+        return $this->minValue;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMinValue($minValue)
+    {
+        if (false === is_int($minValue) && false === is_float($minValue) && false === is_null($minValue)) {
+            throw new InvalidArgumentException();
+        }
+
+        $this->minValue = $minValue;
+
+        return $this;
+    }
+
+    /**
      * Is opposite.
      *
      * @var bool

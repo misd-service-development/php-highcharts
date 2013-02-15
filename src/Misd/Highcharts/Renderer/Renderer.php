@@ -274,6 +274,12 @@ class Renderer implements RendererInterface
         if (0 < count($axis->getCategories())) {
             $options['categories'] = array_values($axis->getCategories());
         }
+        if (null !== $axis->getMaxValue()) {
+            $options['max'] = $axis->getMaxValue();
+        }
+        if (null !== $axis->getMinValue()) {
+            $options['min'] = $axis->getMinValue();
+        }
 
         if (false === $axis->getTitle()->isEnabled()) {
             $options['title']['text'] = null;

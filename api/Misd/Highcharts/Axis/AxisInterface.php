@@ -75,6 +75,42 @@ interface AxisInterface
     public function addCategories(array $categories);
 
     /**
+     * Gets the maximum value.
+     *
+     * @return int|float|null Maximum value, or `null` if not set.
+     */
+    public function getMaxValue();
+
+    /**
+     * Sets the maximum value.
+     *
+     * @param int|float|null $maxValue Maximum value, or `null` to remove the existing value.
+     *
+     * @return self Reference to the axis.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setMaxValue($maxValue);
+
+    /**
+     * Gets the minimum value.
+     *
+     * @return int|float|null Min value, or `null` if not set.
+     */
+    public function getMinValue();
+
+    /**
+     * Sets the minimum value.
+     *
+     * @param int|float|null $minValue Minimum value, or `null` to remove the existing value.
+     *
+     * @return self Reference to the axis.
+     *
+     * @throws InvalidArgumentException If an argument is invalid.
+     */
+    public function setMinValue($minValue);
+
+    /**
      * Whether the axis is opposite.
      *
      * @return bool `true` if opposite, otherwise `false`.

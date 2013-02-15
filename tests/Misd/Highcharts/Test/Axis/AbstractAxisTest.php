@@ -50,6 +50,50 @@ class AbstractAxisTest extends TestCase
         $this->assertNull($axis->getCategory('four'));
     }
 
+    public function testMaxValue()
+    {
+        $axis = $this->getAxis();
+
+        $this->assertSame($axis, $axis->setMaxValue(100));
+        $this->assertSame(100, $axis->getMaxValue());
+        $this->assertSame($axis, $axis->setMaxValue(10.5));
+        $this->assertSame(10.5, $axis->getMaxValue());
+        $this->assertSame($axis, $axis->setMaxValue(null));
+        $this->assertNull($axis->getMaxValue());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testMaxValueArgumentException()
+    {
+        $axis = $this->getAxis();
+
+        $axis->setMaxValue('test');
+    }
+
+    public function testMinValue()
+    {
+        $axis = $this->getAxis();
+
+        $this->assertSame($axis, $axis->setMinValue(100));
+        $this->assertSame(100, $axis->getMinValue());
+        $this->assertSame($axis, $axis->setMinValue(10.5));
+        $this->assertSame(10.5, $axis->getMinValue());
+        $this->assertSame($axis, $axis->setMinValue(null));
+        $this->assertNull($axis->getMinValue());
+    }
+
+    /**
+     * @expectedException \Misd\Highcharts\Exception\InvalidArgumentException
+     */
+    public function testMinValueArgumentException()
+    {
+        $axis = $this->getAxis();
+
+        $axis->setMinValue('test');
+    }
+
     public function testOpposite()
     {
         $axis = $this->getAxis();
