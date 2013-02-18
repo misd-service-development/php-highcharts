@@ -107,6 +107,16 @@ abstract class AbstractAxis implements AxisInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function clearCategories()
+    {
+        $this->categories = array();
+
+        return $this;
+    }
+
+    /**
      * Maximum value.
      *
      * @var int|float|null

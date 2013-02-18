@@ -75,6 +75,13 @@ interface AxisInterface
     public function addCategories(array $categories);
 
     /**
+     * Clears existing categories.
+     *
+     * @return self Reference to the axis.
+     */
+    public function clearCategories();
+
+    /**
      * Gets the maximum value.
      *
      * @return int|float|null Maximum value, or `null` if not set.

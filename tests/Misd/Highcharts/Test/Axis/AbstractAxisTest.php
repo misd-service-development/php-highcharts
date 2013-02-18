@@ -48,6 +48,8 @@ class AbstractAxisTest extends TestCase
         $this->assertSame(array('one' => 'One', 'two' => 'Two', 'three' => 'Three'), $axis->getCategories());
         $this->assertSame('Three', $axis->getCategory('three'));
         $this->assertNull($axis->getCategory('four'));
+        $this->assertSame($axis, $axis->clearCategories());
+        $this->assertEmpty($axis->getCategories());
     }
 
     public function testMaxValue()
