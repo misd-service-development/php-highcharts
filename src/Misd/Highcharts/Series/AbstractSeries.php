@@ -118,8 +118,19 @@ abstract class AbstractSeries implements SeriesInterface
      */
     public function addData(array $data)
     {
-        foreach ($data as $datum) {
+        if (null !== $this->xAxis) {
+            $categories = array_keys($this->xAxis->getCategories());
+        } else {
+            $categories = array();
+        }
+
+        foreach ($data as $category => $datum) {
             $dataPoint = new DataPoint();
+
+            if (false !== $position = array_search($category, $categories)) {
+                $dataPoint->setXValue($position);
+            }
+
             $dataPoint->setYValue($datum);
             $this->addDataPoint($dataPoint);
         }

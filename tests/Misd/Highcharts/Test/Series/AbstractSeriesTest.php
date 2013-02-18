@@ -65,6 +65,29 @@ class AbstractSeriesTest extends TestCase
         $this->assertSame(2, $dataPoints[3]->getYValue());
     }
 
+    public function testDataCategories()
+    {
+        $series = $this->getSeries();
+
+        $xAxis = $this->getMock('Misd\Highcharts\Axis\XAxisInterface');
+        $xAxis->expects($this->any())
+            ->method('getCategories')
+            ->will($this->returnValue(array('one' => 'One', 'two' => 'Two')));
+
+        $series->setXAxis($xAxis);
+
+        $this->assertSame($series, $series->addData(array('two' => 2, 'one' => 1, 'three' => 3)));
+
+        $dataPoints = $series->getDataPoints();
+
+        $this->assertSame(1, $dataPoints[0]->getXValue());
+        $this->assertSame(2, $dataPoints[0]->getYValue());
+        $this->assertSame(0, $dataPoints[1]->getXValue());
+        $this->assertSame(1, $dataPoints[1]->getYValue());
+        $this->assertNull($dataPoints[2]->getXValue());
+        $this->assertSame(3, $dataPoints[2]->getYValue());
+    }
+
     public function testXAxis()
     {
         $series = $this->getSeries();
