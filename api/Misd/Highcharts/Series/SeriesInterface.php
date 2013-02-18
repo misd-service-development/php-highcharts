@@ -79,7 +79,7 @@ interface SeriesInterface
     /**
      * Adds data.
      *
-     * @param int[] $data Data.
+     * @param array $data Data.
      *
      * @return self Reference to the series.
      */
