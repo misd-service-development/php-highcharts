@@ -101,7 +101,7 @@ abstract class AbstractAxis implements AxisInterface
      */
     public function addCategories(array $categories)
     {
-        $this->categories = array_merge($this->categories, $categories);
+        $this->categories += $categories;
 
         return $this;
     }
