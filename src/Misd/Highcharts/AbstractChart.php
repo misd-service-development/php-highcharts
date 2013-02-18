@@ -128,6 +128,14 @@ abstract class AbstractChart implements ChartInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getXAxis($key)
+    {
+        return array_key_exists($key, $this->xAxes) ? $this->xAxes[$key] : null;
+    }
+
+    /**
      * Y-axes.
      *
      * @var YAxisInterface[]
@@ -150,6 +158,14 @@ abstract class AbstractChart implements ChartInterface
     public function getYAxes()
     {
         return $this->yAxes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getYAxis($key)
+    {
+        return array_key_exists($key, $this->yAxes) ? $this->yAxes[$key] : null;
     }
 
     /**

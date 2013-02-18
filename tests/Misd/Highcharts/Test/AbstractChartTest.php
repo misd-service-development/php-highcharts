@@ -61,6 +61,9 @@ class AbstractChartTest extends TestCase
         $this->assertSame($chart, $chart->addXAxis($axis1));
         $this->assertSame($chart, $chart->addXAxis($axis2));
         $this->assertSame(array($axis1, $axis2), $chart->getXAxes());
+        $this->assertSame($axis1, $chart->getXAxis(0));
+        $this->assertSame($axis2, $chart->getXAxis(1));
+        $this->assertNull($chart->getXAxis(2));
     }
 
     public function testYAxis()
@@ -75,6 +78,9 @@ class AbstractChartTest extends TestCase
         $this->assertSame($chart, $chart->addYAxis($axis1));
         $this->assertSame($chart, $chart->addYAxis($axis2));
         $this->assertSame(array($axis1, $axis2), $chart->getYAxes());
+        $this->assertSame($axis1, $chart->getYAxis(0));
+        $this->assertSame($axis2, $chart->getYAxis(1));
+        $this->assertNull($chart->getYAxis(2));
     }
 
     public function testSeries()

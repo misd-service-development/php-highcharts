@@ -83,6 +83,15 @@ interface ChartInterface
     public function getXAxes();
 
     /**
+     * Gets an x-axis.
+     *
+     * @param int $key Key.
+     *
+     * @return XAxisInterface|null X-axis, or null if not found.
+     */
+    public function getXAxis($key);
+
+    /**
      * Adds a y-axis.
      *
      * @param YAxisInterface $yAxis Y-axis.
@@ -97,6 +106,15 @@ interface ChartInterface
      * @return YAxisInterface[] Y-axis.
      */
     public function getYAxes();
+
+    /**
+     * Gets a y-axis.
+     *
+     * @param int $key Key.
+     *
+     * @return YAxisInterface|null Y-axis, or null if not found.
+     */
+    public function getYAxis($key);
 
     /**
      * Adds a series.
