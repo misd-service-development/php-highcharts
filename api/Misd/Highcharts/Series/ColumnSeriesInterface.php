@@ -11,6 +11,8 @@
 
 namespace Misd\Highcharts\Series;
 
+use Misd\Highcharts\Series\State\SolidHoverStateInterface;
+
 /**
  * Column series.
  *
@@ -18,4 +20,10 @@ namespace Misd\Highcharts\Series;
  */
 interface ColumnSeriesInterface extends StackableSeriesInterface
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @return SolidHoverStateInterface Hover state.
+     */
+    public function getHoverState();
 }

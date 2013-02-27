@@ -17,6 +17,7 @@ use Misd\Highcharts\DataPoint\DataPointInterface;
 use Misd\Highcharts\Exception\InvalidArgumentException;
 use Misd\Highcharts\Series\Animation\AnimationInterface;
 use Misd\Highcharts\Series\Marker\MarkerInterface;
+use Misd\Highcharts\Series\State\HoverStateInterface;
 use Zend\Json\Expr;
 
 /**
@@ -336,4 +337,11 @@ interface SeriesInterface
      * @return AnimationInterface Animation.
      */
     public function getAnimation();
+
+    /**
+     * Gets the hover state.
+     *
+     * @return HoverStateInterface Hover state.
+     */
+    public function getHoverState();
 }

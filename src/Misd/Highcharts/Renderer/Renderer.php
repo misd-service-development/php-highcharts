@@ -32,6 +32,7 @@ use Misd\Highcharts\Series\SequentialSeriesInterface;
 use Misd\Highcharts\Series\SeriesInterface;
 use Misd\Highcharts\Series\SplineSeriesInterface;
 use Misd\Highcharts\Series\StackableSeriesInterface;
+use Misd\Highcharts\Series\State\SolidHoverStateInterface;
 use Misd\Highcharts\Tooltip\TooltipInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Zend\Json\Json;
@@ -453,6 +454,23 @@ class Renderer implements RendererInterface
 
             $options['dataLabels']['distance'] = $series->getLabelsDistance();
         }
+
+        $hoverState = array(
+            'enabled' => $series->getHoverState()->isEnabled(),
+            'marker' => $this->renderMarker($series->getHoverState()->getMarker()),
+        );
+
+        if (null !== $series->getHoverState()->getLineWidth()) {
+            $hoverState['lineWidth'] = $series->getHoverState()->getLineWidth();
+        }
+        if (
+            true === $series->getHoverState() instanceof SolidHoverStateInterface &&
+            null !== $series->getHoverState()->getBrightness()
+        ) {
+            $hoverState['brightness'] = $series->getHoverState()->getBrightness();
+        }
+
+        $options['states']['hover'] = $hoverState;
 
         return $options;
     }

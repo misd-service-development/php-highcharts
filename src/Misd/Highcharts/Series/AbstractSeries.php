@@ -20,6 +20,8 @@ use Misd\Highcharts\Series\Animation\Animation;
 use Misd\Highcharts\Series\Animation\AnimationInterface;
 use Misd\Highcharts\Series\Marker\Marker;
 use Misd\Highcharts\Series\Marker\MarkerInterface;
+use Misd\Highcharts\Series\State\HoverState;
+use Misd\Highcharts\Series\State\HoverStateInterface;
 use Zend\Json\Expr;
 
 /**
@@ -539,5 +541,24 @@ abstract class AbstractSeries implements SeriesInterface
     public function getAnimation()
     {
         return $this->animation;
+    }
+
+    /**
+     * Hover state.
+     *
+     * @var HoverStateInterface
+     */
+    protected $hoverState;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHoverState()
+    {
+        if (null === $this->hoverState) {
+            $this->hoverState = new HoverState($this);
+        }
+
+        return $this->hoverState;
     }
 }

@@ -9,21 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Misd\Highcharts\Series;
-
-use Misd\Highcharts\Series\State\SolidHoverStateInterface;
+namespace Misd\Highcharts\Series\State;
 
 /**
- * Bar series.
+ * Abstract hover state.
  *
  * @author Chris Wilkinson <chris.wilkinson@admin.cam.ac.uk>
  */
-interface BarSeriesInterface extends StackableSeriesInterface
+abstract class AbstractHoverState extends AbstractState implements HoverStateInterface
 {
-    /**
-     * {@inheritdoc}
-     *
-     * @return SolidHoverStateInterface Hover state.
-     */
-    public function getHoverState();
 }

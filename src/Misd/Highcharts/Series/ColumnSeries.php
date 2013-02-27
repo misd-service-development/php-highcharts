@@ -11,6 +11,9 @@
 
 namespace Misd\Highcharts\Series;
 
+use Misd\Highcharts\Series\State\SolidHoverState;
+use Misd\Highcharts\Series\State\SolidHoverStateInterface;
+
 /**
  * Column chart series.
  *
@@ -26,5 +29,24 @@ class ColumnSeries extends AbstractStackableSeries implements ColumnSeriesInterf
     public static function factory()
     {
         return new self();
+    }
+
+    /**
+     * Hover state.
+     *
+     * @var SolidHoverStateInterface
+     */
+    protected $hoverState;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHoverState()
+    {
+        if (null === $this->hoverState) {
+            $this->hoverState = new SolidHoverState($this);
+        }
+
+        return $this->hoverState;
     }
 }

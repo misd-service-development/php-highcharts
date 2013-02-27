@@ -24,4 +24,11 @@ class ColumnSeriesTest extends AbstractStackableSeriesTest
     {
         $this->assertInstanceOf('Misd\Highcharts\Series\ColumnSeriesInterface', ColumnSeries::factory());
     }
+
+    public function testHoverState()
+    {
+        $series = $this->getSeries();
+
+        $this->assertInstanceOf('Misd\Highcharts\Series\State\SolidHoverStateInterface', $series->getHoverState());
+    }
 }

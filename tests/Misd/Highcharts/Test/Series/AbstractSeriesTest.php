@@ -374,4 +374,11 @@ class AbstractSeriesTest extends TestCase
 
         $this->assertInstanceOf('Misd\Highcharts\Series\Animation\AnimationInterface', $series->getAnimation());
     }
+
+    public function testHoverState()
+    {
+        $series = $this->getSeries();
+
+        $this->assertInstanceOf('Misd\Highcharts\Series\State\HoverStateInterface', $series->getHoverState());
+    }
 }

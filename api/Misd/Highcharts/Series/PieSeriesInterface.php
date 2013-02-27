@@ -12,6 +12,7 @@
 namespace Misd\Highcharts\Series;
 
 use Misd\Highcharts\Exception\InvalidArgumentException;
+use Misd\Highcharts\Series\State\SolidHoverStateInterface;
 
 /**
  * Pie chart series interface.
@@ -122,4 +123,11 @@ interface PieSeriesInterface extends SeriesInterface
      * @throws InvalidArgumentException If an argument is invalid.
      */
     public function setLabelsDistance($labelsDistance);
+
+    /**
+     * {@inheritdoc}
+     *
+     * @return SolidHoverStateInterface Hover state.
+     */
+    public function getHoverState();
 }

@@ -147,4 +147,11 @@ class PieSeriesTest extends AbstractSeriesTest
 
         $series->setLabelsDistance('test');
     }
+
+    public function testHoverState()
+    {
+        $series = $this->getSeries();
+
+        $this->assertInstanceOf('Misd\Highcharts\Series\State\SolidHoverStateInterface', $series->getHoverState());
+    }
 }

@@ -12,6 +12,8 @@
 namespace Misd\Highcharts\Series;
 
 use Misd\Highcharts\Exception\InvalidArgumentException;
+use Misd\Highcharts\Series\State\SolidHoverState;
+use Misd\Highcharts\Series\State\SolidHoverStateInterface;
 
 /**
  * Pie series.
@@ -192,5 +194,24 @@ class PieSeries extends AbstractSeries implements PieSeriesInterface
         $this->labelsDistance = $labelsDistance;
 
         return $this;
+    }
+
+    /**
+     * Hover state.
+     *
+     * @var SolidHoverStateInterface
+     */
+    protected $hoverState;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getHoverState()
+    {
+        if (null === $this->hoverState) {
+            $this->hoverState = new SolidHoverState($this);
+        }
+
+        return $this->hoverState;
     }
 }
