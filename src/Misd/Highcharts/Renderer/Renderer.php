@@ -99,8 +99,8 @@ class Renderer implements RendererInterface
 
         $options = Json::encode($options, false, array('enableJsonExprFinder' => true));
 
-        $return = $chart->getId() . '_options = ' . $options . PHP_EOL;
-        $return .= $chart->getId() . ' = new Highcharts.Chart(' . $chart->getId() . '_options);';
+        $return = 'var ' . $chart->getId() . '_options = ' . $options . PHP_EOL;
+        $return .= 'var ' . $chart->getId() . ' = new Highcharts.Chart(' . $chart->getId() . '_options);';
 
         return $return;
     }
