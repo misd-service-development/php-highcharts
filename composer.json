@@ -16,7 +16,7 @@
     },
     "require":{
         "php":">=5.3.3",
-        "zendframework/zend-json":"~2.1.2"
+        "zendframework/zend-json":"~2.2.1"
     },
     "require-dev":{
         "symfony/event-dispatcher":"~2.1"
